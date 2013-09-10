@@ -1,4 +1,6 @@
-
+--Mason Crane
+--9/10/13
+--Queries Homework 1
 
 --Question 1.
 
