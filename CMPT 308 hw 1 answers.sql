@@ -1,6 +1,6 @@
 
 
-Question 1.
+--Question 1.
 
 SELECT
 customers.*
@@ -9,7 +9,7 @@ FROM
 public.customers;
 
 
-Question 2.
+--Question 2.
 
 SELECT
 agents.name,
@@ -23,7 +23,7 @@ WHERE
 agents.name = 'Smith';
 
 
-Question 3.
+--Question 3.
 
 
 SELECT 
@@ -37,7 +37,7 @@ WHERE
 products.priceUSD > 1.25;
 
 
-Question 4.
+--Question 4.
 
 SELECT 
   orders.ordno, 
@@ -46,7 +46,7 @@ FROM
   public.orders;
 
   
-Question 5.
+--Question 5.
 
 SELECT 
   customers.name, 
@@ -59,7 +59,7 @@ WHERE
 customers.city != 'Dallas';
 
 
-Question 6.
+--Question 6.
 
 SELECT 
   agents.name
@@ -70,7 +70,7 @@ WHERE
   agents.city =  'Newark';
 
   
- Question 7.
+ --Question 7.
  
  SELECT 
   products.*
@@ -84,7 +84,7 @@ products.city != 'Newark' AND
 products.priceusd < 1.00;
 
 
-Question 8.
+--Question 8.
 
 
 SELECT 
@@ -107,7 +107,7 @@ orders.mon != 'dec';
 
 
 
-Question 9.
+--Question 9.
 
 
 SELECT 
@@ -133,7 +133,7 @@ orders.mon != 'dec' AND
 orders.dollars < 1.00;
 
 
-Question 10.
+--Question 10.
 
 SELECT 
   orders.ordno, 
