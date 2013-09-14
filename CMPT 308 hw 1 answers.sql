@@ -121,26 +121,15 @@ WHERE
 
 
 
-orders.mon != 'jan' AND
-orders.mon != 'mar' AND
-orders.mon != 'apr'  AND
-orders.mon != 'may' AND
-orders.mon != 'jun' AND
-orders.mon != 'jul' AND
-orders.mon != 'aug' AND
-orders.mon != 'sep' AND
-orders.mon != 'oct' AND
-orders.mon != 'nov' AND
-orders.mon != 'dec' AND 
-orders.dollars < 1.00;
+orders.mon = 'feb' AND
+
+orders.dollars < 100;
 
 
 --Question 10.
 
 SELECT 
-  orders.ordno, 
-  orders.pid, 
-  orders.qty
+  orders.*
 FROM 
   public.orders
 
