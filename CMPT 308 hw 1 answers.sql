@@ -119,11 +119,8 @@ FROM
 
 WHERE
 
-
-
 orders.mon = 'feb' AND
-
-orders.dollars < 100;
+orders.dollars < 100.00;
 
 
 --Question 10.
@@ -136,7 +133,6 @@ FROM
 WHERE 
 
 orders.cid = 'c005';
-
 
 
 
