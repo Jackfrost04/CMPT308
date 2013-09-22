@@ -1,3 +1,8 @@
+--Mason Crane
+--Question set 2.
+--9/22/13
+
+
 --Question One
 
 select distinct city 
