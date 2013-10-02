@@ -45,13 +45,35 @@ where pid in
 	)
 	)
 
---Question 4.
+--Question 4. Get the pids of products ordered through any agent who makes at least	one	order for a	customer in	Kyoto.	Use	joins thos time;
 
 select distinct  o2.pid 
 from  Orders o1, orders o2, Customers
 where o1.cid = customers.cid 
 and   o1.aid = o2.aid
 and   customers.city = 'Kyoto'
+
+
+--Question 5. Get the names	of customers who have never	placed	an	order.	Use	a subquery.
+
+select distinct name 
+from customers
+where cid not in
+   (select cid
+    from orders
+    )
+
+--Question 6. Get the names	of customers who have never	placed	an	order. Use an outer	join
+
+select distinct c.name
+from  orders o right outer join customers c
+     on c.cid = o.cid 
+     where o.cid is null 
+
+
+
+
+
 
 
 
