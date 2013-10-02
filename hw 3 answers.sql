@@ -69,6 +69,40 @@ select distinct c.name
 from  orders o right outer join customers c
      on c.cid = o.cid 
      where o.cid is null 
+	 
+	 
+--question 7. Get the names of customers who placed	at	least	one	order	through	an agent in	their city,	along with those agent(s)names
+
+select distinct c.name, a.name
+from customers c, orders o, agents a
+where o.cid = c.cid 
+and   o.aid = a.aid
+and   c.city = a.city 
+
+--Question 8. Get the names of customers and agents	in	the	same city, along with the name of the city,	regardless	of	whether	or	not	the	customer has ever placed an	order with	that agent.
+
+select distinct c.name, a.name, c.city, a.city 
+from customers c, orders o, agents a
+where c.city = a.city
+and   o.aid  = a.aid
+
+--Question 9. Get the name and city	of customers who live in the city where	the	least number of	products are made.
+
+select c.name, c.city
+from customers c
+where city in 
+
+(select city
+from products
+Group by city
+ORDER BY COUNT(city) asc
+limit 1)
+
+
+
+
+
+
 
 
 
