@@ -99,6 +99,26 @@ ORDER BY COUNT(city) asc
 limit 1)
 
 
+--Question 10. Get	the	name and city of customers	who	live in	a	city where	the	most number	of	products are made
+
+
+--CHECK THIS ANSWER
+select c.name, c.city
+from customers c
+where city in 
+
+(select city 
+from products 
+Group by city
+order by count(city) desc
+limit 1)
+
+--Question 11. Get	the	name and city of customers	who	live in	any	city where	the most number	of	products are	made.
+
+
+
+
+
 
 
 
