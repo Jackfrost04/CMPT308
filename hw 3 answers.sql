@@ -146,19 +146,30 @@ having avg (priceUSD) > (select avg(priceUSD)
 		
 --Question 13. Show	the	customer name, pid ordered,	and	the	dollars	for	all	customer orders, sorted	by dollars	from high to low.
 
-select c.name, p.pid, p.priceUSD
+select c.name, p.pid, o.dollars
 from customers c inner join orders o on c.cid = o.cid
 	         inner join products p on o.pid = p.pid
-order by p.priceUSD desc 
+order by o.dollars desc 
 
 
 --Question 14. Show	all	customer names (in order) and their	total ordered, and nothing	more. Use coalesce to avoid	showing	NULLs.
 
+--question 14
+select c.name,coalesce ( sum (o.dollars), 0)
+from customers c left outer join orders o on c.cid = o.cid
+group by c.cid
+order by c.name asc
+
 
 	
-	
-	
-	
+--Question 15. Show	the	names	of	all	customers	who	bought	products	from	agents	based in New York	along	with	the	names	of	the	products	they	ordered, and	the	names	of	the	agents	who	sold	it	to	them.
+
+select c.name, p.name, a.name
+from products p, agents a, customers c, orders o
+where c.cid = o.cid
+and   p.pid = o.pid
+and   a.aid = o.aid 
+and   a.city = 'New York'	
 	
 	
 	
