@@ -102,7 +102,6 @@ limit 1)
 --Question 10. Get	the	name and city of customers	who	live in	a	city where	the	most number	of	products are made
 
 
---CHECK THIS ANSWER
 select c.name, c.city
 from customers c
 where city in 
@@ -116,20 +115,56 @@ limit 1)
 --Question 11. Get	the	name and city of customers	who	live in	any	city where	the most number	of	products are	made.
 
 
+select c.name, c.city
+from customers c
+where city in 
+
+(select city 
+from products 
+Group by city
+having count(city) in 
+
+
+
+(select count(city)
+from products
+group by city
+order by count(city) desc
+limit 1))
 
 
 
 
+--question 12. List	the	products whose	priceUSD is	above the	average	priceUSD.
+
+select p.name
+from products p
+group by p.name
+having avg (priceUSD) > (select avg(priceUSD)
+		from products) 
+
+		
+--Question 13. Show	the	customer name, pid ordered,	and	the	dollars	for	all	customer orders, sorted	by dollars	from high to low.
+
+select c.name, p.pid, p.priceUSD
+from customers c inner join orders o on c.cid = o.cid
+	         inner join products p on o.pid = p.pid
+order by p.priceUSD desc 
 
 
+--Question 14. Show	all	customer names (in order) and their	total ordered, and nothing	more. Use coalesce to avoid	showing	NULLs.
 
 
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
