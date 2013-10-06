@@ -172,7 +172,7 @@ and   a.city = 'New York'
 	
 	
 --question 16. Write	a	query	to	check	the	accuracy	of	the	dollars	column	in	the	Orders	table.
-
+--If no change occurs when running #16 than everything is right. Once you make an error in the Orders (dollars), Re-Run #16. The change will then show up.
 select o.ordno, o.dollars as "Wrong Dollar Value", (p.priceUSD * o.qty) - ((p.priceUSD * o.qty ) * (c.discount/ 100)) as "Correct Dollar Value"
 from orders o, products p, customers c
 where c.cid = o.cid
