@@ -154,7 +154,6 @@ order by o.dollars desc
 
 --Question 14. Show	all	customer names (in order) and their	total ordered, and nothing	more. Use coalesce to avoid	showing	NULLs.
 
---question 14
 select c.name,coalesce ( sum (o.dollars), 0)
 from customers c left outer join orders o on c.cid = o.cid
 group by c.cid
@@ -172,8 +171,24 @@ and   a.aid = o.aid
 and   a.city = 'New York'	
 	
 	
-	
-	
+--question 16. Write	a	query	to	check	the	accuracy	of	the	dollars	column	in	the	Orders	table.
+
+select o.ordno, o.dollars as "Wrong Dollar Value", (p.priceUSD * o.qty) - ((p.priceUSD * o.qty ) * (c.discount/ 100)) as "Correct Dollar Value"
+from orders o, products p, customers c
+where c.cid = o.cid
+and   p.pid = o.pid
+and o.dollars <> (p.priceUSD * o.qty) - ((p.priceUSD * o.qty ) * (c.discount/ 100))
+
+
+--Question 17. Create an error in the	dollars	column	of	the	Orders table so	that you can verify	your accuracy checking query.
+
+update orders
+set   dollars = 10000
+where dollars = 500;
+
+
+
+
 	
 	
 	
