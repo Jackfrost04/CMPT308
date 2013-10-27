@@ -147,6 +147,24 @@ order by pid asc
 
 
 
+create index custnamex on customers(name)
+select *
+from customers
+where name = 'Tiptop'
+
+drop table test3
+create table test3 (
+	id int not null,
+	name text
+	primary key (id)
+	);
+	
+	
+	
+	
+	
+	
+	
 
 
 
